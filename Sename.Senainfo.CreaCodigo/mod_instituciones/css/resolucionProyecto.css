@@ -1,0 +1,56 @@
+﻿/* File Input */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.ui-datepicker {
+    position: relative;
+    z-index: 999 !important;
+}
+
+.fecha, .fecha-termino { line-height: 19px !important }
+
+.titulo-confirm {
+    font-size: 1.5rem !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.jconfirm .jconfirm-box div.jconfirm-title-c .jconfirm-icon-c i {
+    vertical-align: text-top;
+}
+
+.disabledTab {
+    pointer-events: none;
+}
+/* Clicks are not permitted and change the opacity. */
+/*li.disabledTab > a[data-toggle="tab"] {
+    pointer-events: none;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}*/
+
+.tab-aviso {
+    border: 1px solid #009900;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: inset 2px 2px 10px rgba(0,0,0,.075), 2px 2px 10px rgba(0, 153, 0, 0.6);
+    padding: 1%;
+}

@@ -1,0 +1,397 @@
+﻿table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    /*border-bottom-width: 0;
+    font-size: 10px !important;*/
+}
+
+.floatRight{
+    float:right;
+}
+.clear{
+    clear:both;
+}
+label {
+    font-size: 1.5rem !important;
+}
+
+.wizard > .content > .body label.error {
+    color: #8a1f11;
+    display: inline-block;
+    margin-left: 0rem !important;
+}
+
+.btn-finalizar {
+    color: #fff !important;
+    background-color: #CA5D2A !important;
+    border-color: #eea236 !important;
+}
+
+.has-success .help-block, .has-success .control-label, 
+.has-success .radio, .has-success .checkbox, .has-success 
+.radio-inline, .has-success .checkbox-inline, .has-success.radio label, 
+.has-success.checkbox label, .has-success.radio-inline label, 
+.has-success.checkbox-inline label {
+    color: #000;
+}
+
+.has-success .select2-dropdown, .has-success .select2-selection {
+    border-color: #ccc;
+}
+
+.help-block {
+    font-size: 11px !important;
+    font-style: normal !important;
+    padding: 0 !important;
+}
+
+.has-error .form-control { border-color: #a94442 !important; }
+
+.error {
+    font-family: "Roboto",Helvetica,Arial,sans-serif;
+    font-size: 1.1rem;
+    font-style: normal !important;
+    color: #333;
+
+}
+
+/* FIX Select CSS*/
+.select2-result-repository { padding-top: 4px; padding-bottom: 3px; }
+.select2-result-repository__title { font-size: 12px !important; color: black; font-weight: bold; word-wrap: break-word; line-height: 1.1; margin-bottom: 4px; }
+.select2-result-repository__description { font-size: 12px !important; color: #777; margin-top: 4px; }
+.select2-results__option--highlighted .select2-result-repository__title { color: white; }
+.select2-results__option--highlighted .select2-result-repository__description { color: white; }
+
+.select2-results__option .select2-results__option--highlighted {
+    font-size: 12px !important;
+    color: black;
+}
+
+body {
+    font-size: 12px !important;
+}
+
+/* FIX Select CSS*/
+
+
+
+legend {
+    font-size: 1.75rem !important;
+    font-family: 'Roboto', sans-serif !important;
+    /*font-weight: bold !important;*/
+}
+
+/*Alertify CSS*/
+.alertify {
+    z-index: 9999 !important;
+}
+
+.ok {
+    background-color: #F59806 !important;
+    color: #fff !important;
+}
+
+.cancel {
+    background-color: #275E8E !important;
+    color: #fff !important;
+    float: right;
+}
+
+.alertify-notifier.ajs-top {
+    top: 50% !important;
+}
+
+.alertify-notifier .ajs-message {
+    width:600px !important;
+}
+.alertify-notifier.ajs-right .ajs-message.ajs-visible {
+    right: 530px !important;
+}
+
+/*Alertify CSS END*/
+
+/* DatePicker */
+.ui-datepicker {
+    z-index: 9999 !important;
+}
+
+/*          VALIDACION             */
+.invalid-input {
+   border: 1px solid red !important;
+}
+
+.valid-input {
+    border: 1px solid green !important;
+}
+
+.invalid-feedback {
+    display: none;
+    margin-top: .25rem;
+    font-size: 1.25rem;
+    color: #dc3545;
+}
+
+/* When the pattern is matched */
+input[type=text]:valid {
+    color: black;
+}
+
+/* Unmatched */
+input[type=text]:invalid {
+    color: #dc3545;
+}
+
+/*          VALIDACION             */
+
+/*          CSS FIX              */
+.wizard > .content > .body {
+    position: relative !important;
+}
+
+.wizard > .content > .body ul > li {
+    display: block !important;
+    font-size: 1.25rem !important;
+}
+
+/*    FORMULARIOS EN UPPER       */
+input[type=text] {
+    text-transform: uppercase;
+}
+
+#tbxUsuarioSnf, #tbxEstadoSnf {
+    text-transform: none;
+}
+
+/* CSS para Formulario Trabajadores */
+.form-group-trabajador {
+    position: relative !important;
+    padding-top: 1.75rem !important;
+}
+
+.form-group {
+    margin-bottom: 5px !important;
+}
+
+.form-group.required .control-label:after { 
+    content: "*";
+    color:red;
+    padding-left:5px;
+}
+
+.label-form-trabajador {
+    top: 1rem !important;
+    left: 0 !important;
+    font-size: 1.15rem !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.estado-trabajador {
+    top: 1rem !important;
+    left: 0 !important;
+    font-size: 1.10rem !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.label-form-trabajador-2x {
+    top: 1rem !important;
+    left: 0 !important;
+    font-size: 1.4rem !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.label-form-busqueda {
+    padding-top: 5px;
+}
+/* CSS para Formulario Trabajadores */
+
+/* Paneles Bootstrap colapsables */
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
+
+.collapse-group {
+    padding: 10px;
+    border: 1px solid darkgrey;
+    margin-bottom: 10px;
+}
+
+.panel-title .trigger:before {
+    float: right;
+    content:"\e113";
+    font-family: 'Glyphicons Halflings';
+    vertical-align: text-bottom;
+}
+
+.panel-title .trigger.collapsed:before {
+    content:"\e114";
+}
+/* Paneles Bootstrap colapsables */
+
+.legend-inline {
+    display: inline-block;
+}
+
+.titulo-content-step {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+}
+
+.titulo-next-step {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.titulo-tabla {
+    /*font-size: 11px !important;*/
+}
+
+/*table.dataTable thead th, table.dataTable thead td { padding: 2px 5px !important; }
+.dataTables_wrapper .dataTables_paginate .paginate_button { padding: 0.1em 0.1em !important;}
+button.dt-button, div.dt-button, a.dt-button { font-size: 0.68em !important; }*/
+
+/*.titulo-tabla-modal {
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color: #000;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 10px !important;
+    text-align: left;
+}*/
+
+.urgent {
+    background-color: #f0aaaa !important
+}
+
+.table tbody.fit,
+.table td.fit, 
+.table th.fit {
+    /*white-space: nowrap;
+    height: 1% !important;
+    width: 1% !important;
+    overflow: auto;*/
+}
+
+table.dataTable.table-condensed > thead > tr > th {
+    /*padding-right: 5px !important;*/
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    /*border-bottom-width: 0 !important;*/
+}
+
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    /*border-bottom-width: 0;
+    font-size: 10px !important;*/
+}
+
+/*Tema del css del SENAME sobreescribe algunos bootstrap. Recuperando el btn-danger*/
+
+.list-group-item {
+    -webkit-box-align:center;
+    align-items:center;
+    /*background-color:#FFFFFF;*/
+    border:1px solid rgba(0, 0, 0, 0.125);
+    display:flex;
+    flex-flow:row wrap;
+    margin-bottom:-1px;
+    padding:0.75rem 1.25rem !important;
+    position:relative;
+}
+
+.btn-urgent {
+    background-repeat: repeat-x;
+    border-color: #d43f3a;
+    background-image: linear-gradient(to bottom,  #d9534f 0%, #912320 100%);
+}
+
+.btn-urgent:hover,
+.btn-urgent:active,
+.btn-urgent.active,
+.btn-urgent:focus,
+.btn-urgent.focus {
+    color: #fff;
+    background-color: #ac2925 ;
+    border-color: #912320;
+}
+.btn-urgent.disabled,
+.btn-urgent:disabled,
+.btn-urgent[disabled] {
+    background-color: #d9534f;
+    border-color: #912320;
+    background-image: none;
+}
+
+.btn-urgent:hover {
+    color: #fff;
+    background-color: #ac2925 ;
+    border-color: #912320;
+}
+
+.btn-urgent {
+    color: #ffffff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-urgent.disabled, 
+.btn-urgent[disabled], 
+fieldset[disabled] .btn-urgent, 
+.btn-urgent.disabled:hover, 
+.btn-urgent[disabled]:hover, 
+fieldset[disabled] .btn-urgent:hover, 
+.btn-urgent.disabled:focus, 
+.btn-urgent[disabled]:focus, 
+fieldset[disabled] .btn-urgent:focus, 
+.btn-urgent.disabled.focus, 
+.btn-urgent[disabled].focus, fieldset[disabled] 
+.btn-urgent.focus, .btn-urgent.disabled:active, 
+.btn-urgent[disabled]:active, fieldset[disabled] 
+.btn-urgent:active, .btn-urgent.disabled.active, 
+.btn-urgent[disabled].active, fieldset[disabled] 
+
+.btn-urgent.active {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+
+
+.bordes {border:solid 1px #bdb7b7}
+.hiddencol{display: none; }
+
+.spinner {
+    background: rgb(255,255,255);
+    background: rgba(255,255,255,0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    z-index:9999;
+    overflow: auto;
+    width: 229px; /* width of the spinner gif */
+    height: 51px; /*hight of the spinner gif +2px to fix IE8 issue */
+    font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.panel-anaranjado {
+    border: 1px solid #f59806;
+
+}

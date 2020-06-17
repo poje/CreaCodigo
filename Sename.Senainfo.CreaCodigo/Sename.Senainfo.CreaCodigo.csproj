@@ -1,0 +1,360 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{587774E1-C288-4C3F-8119-FB8A5441DD32}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sename.Senainfo.CreaCodigo</RootNamespace>
+    <AssemblyName>Sename.Senainfo.CreaCodigo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SenainfoSdk.Kernel, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SenainfoSdk.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight, Version=3.4.0.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\alertify.min.css" />
+    <Content Include="css\bootstrap-switch.min.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\buttons.dataTables.min.css" />
+    <Content Include="css\datatables.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\images\ui-bg_flat_0_888888_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_25_e1f0f5_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_55_444444_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_309bbf_256x240.png" />
+    <Content Include="css\images\ui-icons_333333_256x240.png" />
+    <Content Include="css\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\images\ui-icons_B94A48_256x240.png" />
+    <Content Include="css\images\ui-icons_bf3030_256x240.png" />
+    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-confirm.min.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="css\jquery.steps.css" />
+    <Content Include="css\jquery.ui.theme.css" />
+    <Content Include="css\select2-bootstrap.min.css" />
+    <Content Include="css\select2.min.css" />
+    <Content Include="css\theme.css" />
+    <Content Include="css\themes\bootstrap.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\Cursors\ajax-loader.gif" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\index01.png" />
+    <Content Include="images\index02.png" />
+    <Content Include="images\index03.png" />
+    <Content Include="images\index04.png" />
+    <Content Include="images\index05.png" />
+    <Content Include="images\index06.png" />
+    <Content Include="images\index07.png" />
+    <Content Include="images\sename.jpg" />
+    <Content Include="js\additional-methods.min.js" />
+    <Content Include="js\alertify.min.js" />
+    <Content Include="js\bootstrap-switch.min.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\buttons.html5.min.js" />
+    <Content Include="js\buttons.print.min.js" />
+    <Content Include="js\dataTables.buttons.min.js" />
+    <Content Include="js\datatables.min.js" />
+    <Content Include="js\hubnotification.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\jquery-confirm.min.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\jquery.dataTables.min.js" />
+    <Content Include="js\jquery.inputmask.bundle.min.js" />
+    <Content Include="js\jquery.Rut.js" />
+    <Content Include="js\jquery.steps.min.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\jszip.min.js" />
+    <Content Include="js\localization\en.js" />
+    <Content Include="js\localization\es.js" />
+    <Content Include="js\localization\jquery.ui.datepicker-es.js" />
+    <Content Include="js\localization\messages_es.min.js" />
+    <Content Include="js\moment.min.js" />
+    <Content Include="js\pdfmake.min.js" />
+    <Content Include="js\select2-selectionTitleAttribute.js" />
+    <Content Include="js\select2.full.js" />
+    <Content Include="js\select2.full.min.js" />
+    <Content Include="js\select2.min.js" />
+    <Content Include="js\vfs_fonts.js" />
+    <Content Include="js\year-select.js" />
+    <Content Include="lib\Newtonsoft.Json.dll" />
+    <Content Include="lib\Newtonsoft.Json.xml" />
+    <Content Include="lib\SenainfoSdk.Kernel.dll" />
+    <Content Include="lib\SenainfoSdk.UI.dll" />
+    <Content Include="lib\SpreadsheetLight.dll" />
+    <Content Include="mod_instituciones\css\mod_instituciones.css" />
+    <Content Include="mod_instituciones\css\resolucionProyecto.css" />
+    <Content Include="mod_instituciones\js\institucionTrabajadores.js" />
+    <Content Include="mod_instituciones\js\ProyectoMigracion.js" />
+    <Content Include="mod_instituciones\js\RegistroTrabajador.js" />
+    <Content Include="mod_instituciones\js\RegistroTrabajadorProyecto.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyecto.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResolucionProyectoPromises.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResolucionProyectoRoutes.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResProyDatosLicitacion.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResProyDatosProyecto.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResProyDatosProyectoLicitacion.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResProyDatosResolucion.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResProyGeneraCodigo.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoJS\ResProyRevisionDatos.js" />
+    <Content Include="mod_instituciones\js\ResolucionProyectoTemplatesSelect2\Templates.js" />
+    <Content Include="mod_instituciones\ResolucionProyecto.aspx" />
+    <Content Include="SenainfoSdk\C_menu_colgante.ascx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\BLL\Dto\AdosadoProyectoLicitacionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\BancoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\ComunaDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatoAdjudicadoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatoCodigoGeneradoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatoProyectoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatosAnexoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatosProyectoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatosProyectoContinuidadDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DatosResolucionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\DeptoSenameDto.cs" />
+    <Compile Include="Layers\BLL\Dto\InstitucionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\LicitacionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\LicitacionProyectoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\ModalidadAtencionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\ModeloAdosadoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\ModeloIntervencionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\ParamsDto.cs" />
+    <Compile Include="Layers\BLL\Dto\ProyectoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\QryListarProyectoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\RegionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\RespuestaSPDto.cs" />
+    <Compile Include="Layers\BLL\Dto\TipoAtencionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\TipoProyectoDto.cs" />
+    <Compile Include="Layers\BLL\Dto\TipoResolucionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\TipoTerminoResolucionDto.cs" />
+    <Compile Include="Layers\BLL\Dto\TokenDto.cs" />
+    <Compile Include="Layers\BLL\Dto\VerificadorAdjuntoDto.cs" />
+    <Compile Include="Layers\BLL\Impl\BancoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\DatoAdjudicadoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\DatoCodigoGeneradoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\DatosProyectoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\InstitucionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\AdosadoProyectoLicitacionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\ArchivoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\ComunaImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\DatosAnexoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\DatosResolucionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\DeptoSenameImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\LicitacionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\LicitacionProyectoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\ModalidadAtencionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\ModeloAdosadoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\ModeloIntervencionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\ProyectoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\RegionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\TipoAtencionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\TipoProyectoImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\TipoResolucionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\TipoTerminoResolucionImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\TokenImpl.cs" />
+    <Compile Include="Layers\BLL\Impl\VerificadorAdjuntoImpl.cs" />
+    <Compile Include="Layers\BLL\Mapper\AdosadoProyectoLicitacionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\ArchivoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\BancoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\ComunaMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\DatosAdjudicadoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\DatosAnexoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\DatosResolucionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\DeptoSenameMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\InstitucionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\LicitacionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\LicitacionProyectoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\ModalidadAtencionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\ModeloAdosadoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\ModeloIntervencionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\ProyectoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\RegionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\RespuestaMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\TipoAtencionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\TipoProyectoMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\TipoResolucionMapper.cs" />
+    <Compile Include="Layers\BLL\Mapper\TipoTerminoResolucionMapper.cs" />
+    <Compile Include="Layers\DAL\Dao\AdosadoProyectoLicitacionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\ArchivoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\BancoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\ComunaDao.cs" />
+    <Compile Include="Layers\DAL\Dao\DatoAdjudicadoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\DatoCodigoGeneradoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\DatosAnexoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\DatosProyectoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\DatosResolucionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\DeptoSenameDao.cs" />
+    <Compile Include="Layers\DAL\Dao\InstitucionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\LicitacionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\LicitacionProyectoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\ModalidadAtencionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\ModeloAdosadoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\ModeloIntervencionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\RegionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\TipoAtencionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\TipoProyectoDao.cs" />
+    <Compile Include="Layers\DAL\Dao\TipoResolucionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\TipoTerminoResolucionDao.cs" />
+    <Compile Include="Layers\DAL\Dao\TokenDao.cs" />
+    <Compile Include="Layers\DAL\Dao\VerificadorAdjuntoDao.cs" />
+    <Compile Include="Layers\DAL\Helpers\ConexionesModInstitucion.cs" />
+    <Compile Include="Layers\DAL\Helpers\Repository.cs" />
+    <Compile Include="Layers\DAL\Helpers\RepositoryLoginSenaInfo.cs" />
+    <Compile Include="Layers\DAL\Helpers\WebConfig.cs" />
+    <Compile Include="Layers\DAL\Dao\ProyectoDao.cs" />
+    <Compile Include="mod_instituciones\Handler\AdjuntaArchivo.ashx.cs">
+      <DependentUpon>AdjuntaArchivo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="mod_instituciones\Handler\ImprimeCodigo.ashx.cs">
+      <DependentUpon>ImprimeCodigo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="mod_instituciones\ResolucionProyecto.aspx.cs">
+      <DependentUpon>ResolucionProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mod_instituciones\ResolucionProyecto.aspx.designer.cs">
+      <DependentUpon>ResolucionProyecto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Utils\WebConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\roboto-v16-latin-regular.woff2" />
+    <Content Include="js\jquery-3.2.1.min.map" />
+    <Content Include="js\localization\dt_es.json" />
+    <Content Include="mod_instituciones\fonts\fontawesome-webfont.woff2" />
+    <Content Include="mod_instituciones\Handler\AdjuntaArchivo.ashx" />
+    <Content Include="mod_instituciones\Handler\GuardarArchivo.ashx" />
+    <Content Include="mod_instituciones\Handler\ImprimeCodigo.ashx" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Layers\BLL\Helpers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58184</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58184/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
