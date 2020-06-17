@@ -207,12 +207,14 @@ CargaDatosAnexo = (codDatosAnexo) => {
         }).on("change",
             function () {
                 if ($(this).val()) {
-                                    }
+                    let codDepto = $("#select-datoanexo").find(':selected').data('data').CodDeptoSename;
+                    cargaDropdownModeloIntervencion(codDepto);
+                }
             });
 
-        datoAnexo.val(null).trigger("change");
 
-    });
+    });        datoAnexo.val(null).trigger("change");
+
 }
 
 /********* VALIDACIONES ***********/
