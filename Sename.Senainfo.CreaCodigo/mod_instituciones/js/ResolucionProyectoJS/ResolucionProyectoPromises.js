@@ -664,7 +664,7 @@ cargaselect2ProyectoContinuidad = data => {
 
             ajaxObtenerDatosProyectoContinuidad.data = `{'codProyectoContinuidad': '${codProyectoContinuidad}'}`;
 
-            var codDepto = $(".licitacion").find(':selected').data('data').CodDeptoSename;
+            var codDepto = $("#select-datoanexo").find(':selected').data('data').CodDeptoSename;
 
             ajaxModeloIntervencionxDepto.data = `{'codDepto': ${codDepto}}`;
 
@@ -672,7 +672,7 @@ cargaselect2ProyectoContinuidad = data => {
 
             getAjaxDataPromise(ajaxObtenerDatosProyectoContinuidad)
                 .then(data => {
-                    console.log(data.d);
+                    //console.log(data.d);
 
                     datosProyectoContinuidad = {
                         sexo: data.d.SexoProyecto,
