@@ -460,7 +460,8 @@ inicializaSwitchs = () => {
         if (state) {
             $(".proyecto-continuidad").attr("disabled", false);
 
-            var codDepto = $(".licitacion").find(':selected').data('data').CodDeptoSename;
+            //var codDepto = $(".licitacion").find(':selected').data('data').CodDeptoSename;
+            var codDepto = $("#select-datoanexo").find(':selected').data('data').CodDeptoSename;
             var codRegion = getSelectedValueInput2($(".region"));
 
             ajaxListaProyectoContinuidad.data = `{'codDepto': ${codDepto}, 'codRegion': ${codRegion}}`;
@@ -556,13 +557,15 @@ cargadropdownModalidadAtencion = (codModeloIntervencion) => {
         });
 };
 
-cargaDropdownModeloIntervencion = () => {
+cargaDropdownModeloIntervencion = (codDepto) => {
 
-    var tipoProyecto = 8;
+    //var tipoProyecto = 8;
 
-    ajaxModeloIntervencion.data = `{'tipoProyecto':'${tipoProyecto}'}`;
+    //ajaxModeloIntervencion.data = `{'tipoProyecto':'${tipoProyecto}'}`;
 
-    getAjaxDataPromise(ajaxModeloIntervencion)
+    ajaxModeloIntervencionxDepto.data = `{'codDepto':'${codDepto}'}`;
+
+    getAjaxDataPromise(ajaxModeloIntervencionxDepto)
         .then(data => {
             cargaSelect2ModeloIntervencion(data);
         })
