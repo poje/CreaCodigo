@@ -188,6 +188,8 @@ CargaDatosAnexo = (codDatosAnexo) => {
         }
     }).then(function (data) {
 
+        //agregarSelectOption($(".datoanexo"));
+
         datoAnexo.select2({
             placeholder: "SELECCIONAR",
             data: $.map(data.d,
@@ -203,7 +205,6 @@ CargaDatosAnexo = (codDatosAnexo) => {
             templateResult: tmplDatosAnexoResult,
             templateSelection: tmplDatosAnexoSelect,
             allowClear: false
-
         }).on("change",
             function () {
                 if ($(this).val()) {
@@ -212,9 +213,10 @@ CargaDatosAnexo = (codDatosAnexo) => {
                 }
             });
 
+        datoAnexo.val(null).trigger("change");
 
-    });        datoAnexo.val(null).trigger("change");
-
+        agregarSelectOption($(".datoanexo"));
+    });        
 }
 
 /********* VALIDACIONES ***********/
