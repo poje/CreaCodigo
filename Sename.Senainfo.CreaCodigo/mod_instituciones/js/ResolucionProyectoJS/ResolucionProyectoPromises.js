@@ -694,6 +694,9 @@ cargaSelect2Licitaciones = data => {
 
             ajaxObtenerProyectos.data = `{'codLicitacion':'${codDatosAnexo}'}`;
 
+            table.clear().draw();
+            tableAdosados.clear().draw();
+
             getAjaxDataPromise(ajaxObtenerProyectos)
                 .then(r=> {
                     $.each(r.d, function () {
