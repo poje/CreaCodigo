@@ -67,7 +67,7 @@ namespace Sename.Senainfo.CreaCodigo.Layers.BLL.Impl
                                 //Asignamos valores a clase
                                 case 1:
                                     esAdosado = (value.Substring(0, 1) != "0");
-                                    lpDto.CodLicitacion = Convert.ToInt32(ValueSubstring(value, 1));
+                                    lpDto.CodDatosAnexo = Convert.ToInt32(ValueSubstring(value, 1));
                                     break;
                                 case 2:
                                     lpDto.CodRegion = Convert.ToInt32(ValueSubstring(value, 2));
@@ -144,7 +144,7 @@ namespace Sename.Senainfo.CreaCodigo.Layers.BLL.Impl
                     else
                     {
                         aplDto.CodLicitacionProyecto = codProyectoLicitacion;
-                        codProyectoLicitacion = lpDao.Insert(lpDto.CodLicitacion, lpDto.CodRegion, lpDto.CodComuna, lpDto.SexoPoblAtendida, lpDto.NumeroMesesConvenio, lpDto.CodModeloIntervencion, lpDto.CodLineaAccion, lpDto.CodModalidadAtencion, lpDto.CodTipoAtencion, lpDto.NroPlazas, lpDto.MontoPeriodoLicitar, lpDto.FactorVidaFamiliar, lpDto.ProyectoAdosado, lpDto.CodModeloIntervencionAdosado,
+                        codProyectoLicitacion = lpDao.Insert(lpDto.CodDatosAnexo, lpDto.CodRegion, lpDto.CodComuna, lpDto.SexoPoblAtendida, lpDto.NumeroMesesConvenio, lpDto.CodModeloIntervencion, lpDto.CodLineaAccion, lpDto.CodModalidadAtencion, lpDto.CodTipoAtencion, lpDto.NroPlazas, lpDto.MontoPeriodoLicitar, lpDto.FactorVidaFamiliar, lpDto.ProyectoAdosado, lpDto.CodModeloIntervencionAdosado,
                         lpDto.NroPlazasAdosado, lpDto.IndVigencia,lpDto.IdUsuarioActualizacion, lpDto.Focalizacion,lpDto.EsProyectoContinuidad,lpDto.CodProyectoContinuidad);
                     }
 

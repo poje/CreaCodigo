@@ -6,13 +6,13 @@ namespace Sename.Senainfo.CreaCodigo.Layers.DAL.Dao
 {
     public class LicitacionProyectoDao : ConexionesModInstitucion
     {
-        public int Insert(int codLicitacion, int codRegion, int codComuna, char sexoPoblAtendida, int numeroMesesConvenio, int codModeloIntervencion,
+        public int Insert(int codDatosAnexo, int codRegion, int codComuna, char sexoPoblAtendida, int numeroMesesConvenio, int codModeloIntervencion,
             int codLineaAccion, int codModalidadAtencion, int codTipoAtencion, int nroPlazas, int montoPeriodoLicitar, int factorVidaFamiliar, int proyectoAdosado, int codModeloIntervencionAdosado,
             int nroPlazasAdosado, char indVigencia, int idUsuarioActualizacion, string focalizacion, int esProyectoContinuidad, int codProyectoContinuidad)
         {
 
             ListParametros.Clear();
-            ListParametros.Add(new SqlParameter("@CodLicitacion", codLicitacion));
+            ListParametros.Add(new SqlParameter("@CodLicitacion", codDatosAnexo));
             ListParametros.Add(new SqlParameter("@CodRegion", codRegion));
             ListParametros.Add(new SqlParameter("@CodComuna", codComuna));
             ListParametros.Add(new SqlParameter("@SexoPoblAtendida", sexoPoblAtendida));
@@ -49,10 +49,10 @@ namespace Sename.Senainfo.CreaCodigo.Layers.DAL.Dao
             return nemo;
         }
 
-        public DataTable Obtener(int codLicitacion)
+        public DataTable Obtener(int codDatosAnexo)
         {
             ListParametros.Clear();
-            ListParametros.Add(new SqlParameter("@codLicitacion", codLicitacion));
+            ListParametros.Add(new SqlParameter("@CodDatosAnexo", codDatosAnexo));
 
             return EjecutaSPToDataTable("[ModInstitucion].[ObtenerProyectos]", ListParametros);
         }

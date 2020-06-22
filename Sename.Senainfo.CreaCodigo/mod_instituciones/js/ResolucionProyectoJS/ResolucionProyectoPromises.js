@@ -742,8 +742,8 @@ cargaSelect2Licitaciones = data => {
 
         agregarSelectOption($(".licitacion"));
 
-        $(".licitacion").on("change", function (e) {
-            var codDepto = $(".licitacion").find(':selected').data('data').CodDeptoSename;
+        $("#select-datoanexo").on("change", function (e) {
+            var codDepto = $("#select-datoanexo").find(':selected').data('data').CodDeptoSename;
 
             ajaxModeloIntervencionxDepto.data = `{'codDepto':'${codDepto}'}`;
 
@@ -758,9 +758,9 @@ cargaSelect2Licitaciones = data => {
                 });
 
 
-            var codLicitacion = getSelectedValueInput2($(".licitacion"));
+            var codDatosAnexo = getSelectedValueInput2($("#select-datoanexo"));
 
-            ajaxObtenerProyectos.data = `{'codLicitacion':'${codLicitacion}'}`;
+            ajaxObtenerProyectos.data = `{'codLicitacion':'${codDatosAnexo}'}`;
 
             getAjaxDataPromise(ajaxObtenerProyectos)
                 .then(r=> {

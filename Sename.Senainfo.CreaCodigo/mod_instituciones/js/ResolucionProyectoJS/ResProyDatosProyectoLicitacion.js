@@ -317,7 +317,7 @@
 function LicitacionProyectosTabla() {
 
     return {
-        codLicitacion: getSelectedValueInput2($("#select-datoanexo")),
+        codDatosAnexo: getSelectedValueInput2($("#select-datoanexo")),
         codRegion: getSelectedValueInput2($(".region")),
         region: getTextSelectedValueInput2($(".region")),
         codComuna: getSelectedValueInput2($(".comuna")),

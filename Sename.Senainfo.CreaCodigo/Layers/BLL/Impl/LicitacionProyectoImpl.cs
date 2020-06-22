@@ -18,7 +18,7 @@ namespace Sename.Senainfo.CreaCodigo.Layers.BLL.Impl
         public int Insert(LicitacionProyectoDto licitacionProyecto)
         {
             //agregar campos
-            return _licitacionProyectoDao.Insert(licitacionProyecto.CodLicitacion, licitacionProyecto.CodRegion, licitacionProyecto.CodComuna, licitacionProyecto.SexoPoblAtendida,
+            return _licitacionProyectoDao.Insert(licitacionProyecto.CodDatosAnexo, licitacionProyecto.CodRegion, licitacionProyecto.CodComuna, licitacionProyecto.SexoPoblAtendida,
                 licitacionProyecto.NumeroMesesConvenio, licitacionProyecto.CodModeloIntervencion, licitacionProyecto.CodLineaAccion, licitacionProyecto.CodModalidadAtencion,
                 licitacionProyecto.CodTipoAtencion, licitacionProyecto.NroPlazas, licitacionProyecto.MontoPeriodoLicitar, licitacionProyecto.FactorVidaFamiliar, licitacionProyecto.ProyectoAdosado,
                 licitacionProyecto.CodModeloIntervencionAdosado, licitacionProyecto.NroPlazasAdosado, licitacionProyecto.IndVigencia, licitacionProyecto.IdUsuarioActualizacion, licitacionProyecto.Focalizacion,
