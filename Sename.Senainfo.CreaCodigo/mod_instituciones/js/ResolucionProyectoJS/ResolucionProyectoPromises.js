@@ -485,6 +485,7 @@ cargaSelect2ModeloIntervencion = data => {
                 ajaxObtenerCantidadModelosAdosados.data = dataJsonObtenerCantidadModelosAdosados;
                 //ajaxDeptosSename.data = dataJsonDeptos;
 
+                //debugger;
                 Promise.all([
                     getAjaxDataPromise(ajaxModalidadAtencion),
                     getAjaxDataPromise(ajaxTipoAtencion),
@@ -512,10 +513,11 @@ cargaSelect2ModeloIntervencion = data => {
                         //setStateBootstrapSwitch($("#chkProyectoAdosado"), true);
 
                         cargaSelect2ModelosAdosados(datas[2]);
-                    } else {
-                        setStateBootstrapSwitch($("#chkProyectoAdosado"), false);
-                        setDisabledBootstrapSwitch($("#chkProyectoAdosado"), false);
                     }
+                    //} else {
+                    //    setStateBootstrapSwitch($("#chkProyectoAdosado"), false);
+                    //    setDisabledBootstrapSwitch($("#chkProyectoAdosado"), false);
+                    //}
 
 
                     //cargaSelect2Deptos(datas[2]);

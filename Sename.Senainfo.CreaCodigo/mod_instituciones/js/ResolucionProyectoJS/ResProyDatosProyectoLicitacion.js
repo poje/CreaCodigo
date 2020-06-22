@@ -181,15 +181,13 @@
             
             $("#lblTituloDatosProyectoAdosado").text(`Datos de Proyecto Adosado (Agregando Proyecto Adosado a Cod. Licitacion Proyecto ${data[0]})`);
 
-
-
             console.log(data);
         });
 
     $("#btnGuardarProyectoLicitacion").on("click", function (e) {
         e.preventDefault();
 
-        var codLicitacion = getSelectedValueInput2($(".licitacion"));
+        var codLicitacion = getSelectedValueInput2($("#select-datoanexo"));
 
         table.rows().every(function (rowIdx, tableLoop, rowLoop) {
             //Insert 
@@ -252,6 +250,8 @@
 
     $("#AgregaProyectoLicitacion").on("click", (e) => {
         e.preventDefault();
+
+        debugger;
         var lpt = LicitacionProyectosTabla();
 
         var lp = JSON.stringify(lpt);
@@ -317,14 +317,14 @@
 function LicitacionProyectosTabla() {
 
     return {
-        codLicitacion: getSelectedValueInput2($(".licitacion")),
+        codLicitacion: getSelectedValueInput2($("#select-datoanexo")),
         codRegion: getSelectedValueInput2($(".region")),
         region: getTextSelectedValueInput2($(".region")),
         codComuna: getSelectedValueInput2($(".comuna")),
         comuna: getTextSelectedValueInput2($(".comuna")),
         focalizacion: $(".focalizacion").val(),
-        sexoPobl: getSelectedValueInput2($(".sexo-poblacion")),
-        nroMesesConvenio: $(".nro-meses-convenio").val(),
+        sexoPoblAtendida: getSelectedValueInput2($(".sexo-poblacion")),
+        numeroMesesConvenio: $(".nro-meses-convenio").val(),
         codModeloIntervencion: getSelectedValueInput2($(".modelo-intervencion")),
         modeloIntervencion: getTextSelectedValueInput2($(".modelo-intervencion")),
         codLineaAccion: getSelectedValueInput2($(".linea-accion")),
