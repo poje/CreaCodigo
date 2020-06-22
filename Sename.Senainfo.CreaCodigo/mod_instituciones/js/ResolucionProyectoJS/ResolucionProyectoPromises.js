@@ -70,11 +70,9 @@ cargaSelect2Regiones = data => {
             ajaxComuna.data = `{'codRegion':'${codRegion}'}`;
 
             Promise.all([
-                //getAjaxDataPromise(ajaxInstituciones),
                 getAjaxDataPromise(ajaxComuna)
             ])
                 .then(values => {
-                    //cargaSelect2Instituciones(values[0]);
                     cargaSelect2Comuna(values[0]);
                 })
                 .catch(error => {
@@ -249,8 +247,6 @@ cargaSelect2InstitucionOrigen = data => {
 
         $(".institucion-origen").on("change", e => {
 
-            // var codInstitucion = getSelectedValueInput2($(".institucion"));
-
             var dataInstitucion = $(".institucion-origen").select2('data')[0];
 
             var dataJson = `{'codInstitucion':'${dataInstitucion.CodInstitucion}'}`
@@ -259,7 +255,6 @@ cargaSelect2InstitucionOrigen = data => {
 
             getAjaxDataPromise(ajaxProyectosOrigen)
                 .then(data => {
-                    console.log(data);
                     cargaSelect2ProyectoOrigen(data);
                 }).catch(error => {
                     console.log(error);
@@ -371,23 +366,6 @@ cargaSelect2LineaAccion = (data, value) => {
 
 
         $(".linea-accion").on("change", (e) => {
-            //var tipoProyecto = getSelectedValueInput2($(".linea-accion"));
-
-            //if (tipoProyecto === 7) {
-            //    setDisabledBootstrapSwitch($("#chkFactorVidaFamiliar"), false);
-            //} else {
-            //    setDisabledBootstrapSwitch($("#chkFactorVidaFamiliar"), true);
-            //}
-
-            //ajaxModeloIntervencion.data = `{'tipoProyecto': '${tipoProyecto}'}`;
-
-            //getAjaxDataPromise(ajaxModeloIntervencion)
-            //    .then(data => {
-            //        cargaSelect2ModeloIntervencion(data);
-            //    })
-            //    .catch(error => {
-            //        console.log(error);
-            //    })
         });
 
         if (value !== null)
@@ -418,23 +396,6 @@ cargaSelect2Deptos = data => {
         agregarSelectOption($(".depto"));
 
         seleccionarValueSelect2($(".depto"), 0);
-
-        //$(".depto").on("change.select2", function (e) {
-
-        //    var codDepto = getSelectedValueInput2($(".depto"));
-
-        //    ajaxModeloIntervencionxDepto.data = `{'codDepto':'${codDepto}'}`;
-
-        //    $(".modelo-intervencion").attr("disabled", false);
-
-        //    getAjaxDataPromise(ajaxModeloIntervencionxDepto)
-        //        .then(data => {
-        //            cargaSelect2ModeloIntervencion(data);
-        //        })
-        //        .catch(error => {
-        //            console.log("error al cargar modelos de intervencion x depto " + error);
-        //        });
-        //});
 
         if ($(".depto") === null)
             reject(new Error("error al cargar dropdown comuna " + error));
@@ -474,7 +435,6 @@ cargaSelect2ModeloIntervencion = data => {
 
                 var dataJsonObtenerCantidadModelosAdosados = `{'codModeloIntervencion':${codModeloIntervencion}}`;
 
-                //var dataJsonDeptos = `{'codModeloIntervencion':'${codModeloIntervencion}'}`;
                 var dataJsonLineaAccionxModelo = `{'codModeloIntervencion':'${codModeloIntervencion}'}`;
 
                 ajaxLineaAccionxModelo.data = dataJsonLineaAccionxModelo;
@@ -483,16 +443,13 @@ cargaSelect2ModeloIntervencion = data => {
                 ajaxObtenerModelosAdosados.data = dataJsonModeloAdosado;
 
                 ajaxObtenerCantidadModelosAdosados.data = dataJsonObtenerCantidadModelosAdosados;
-                //ajaxDeptosSename.data = dataJsonDeptos;
 
-                //debugger;
                 Promise.all([
                     getAjaxDataPromise(ajaxModalidadAtencion),
                     getAjaxDataPromise(ajaxTipoAtencion),
                     getAjaxDataPromise(ajaxObtenerModelosAdosados),
                     getAjaxDataPromise(ajaxLineaAccionxModelo),
                     getAjaxDataPromise(ajaxObtenerCantidadModelosAdosados)
-                    //getAjaxDataPromise(ajaxDeptosSename)
                 ]).then(datas => {
 
                     $.when(cargaSelect2LineaAccion(datas[3])).done(function () {
@@ -505,25 +462,6 @@ cargaSelect2ModeloIntervencion = data => {
                     });
 
                     cargaSelect2TipoAtencion(datas[1]);
-
-                    var cantidadModelosAdosados = datas[4].d;
-
-                    if (cantidadModelosAdosados > 0) {
-                        setDisabledBootstrapSwitch($("#chkProyectoAdosado"), false);
-                        //setStateBootstrapSwitch($("#chkProyectoAdosado"), true);
-
-                        cargaSelect2ModelosAdosados(datas[2]);
-                    }
-                    //} else {
-                    //    setStateBootstrapSwitch($("#chkProyectoAdosado"), false);
-                    //    setDisabledBootstrapSwitch($("#chkProyectoAdosado"), false);
-                    //}
-
-
-                    //cargaSelect2Deptos(datas[2]);
-
-                    //$('.depto').val($('.depto').val($('.depto option:eq(1)').val()).trigger('change'));
-                    //$(".modalidad-atencion").val($('.modalidad-atencion').val($('.modalidad-atencion option:eq(0)').val()).trigger('change'));
 
                 }).catch(error => {
                     console.log(error);
@@ -540,8 +478,6 @@ cargaSelect2ModeloIntervencion = data => {
             reject(
                 new Error("error al cargar dropdown Modelo Intervencion")
             );
-
-        //        $(".modelo-intervencion").val(data.d[0].CodModeloIntervencion).trigger("change.select2");
 
         resolve($(".modelo-intervencion"));
     });
@@ -661,8 +597,6 @@ cargaselect2ProyectoContinuidad = data => {
             allowClear: true
         }).on("change", function (e) {
             var codProyectoContinuidad = getSelectedValueInput2($(".proyecto-continuidad"));
-            //ajaxObtenerDatosProyectoContinuidad.data = `{'codProyectoContinuidad': '${codProyectoContinuidad}'}`;
-            console.log(codProyectoContinuidad);
 
             ajaxObtenerDatosProyectoContinuidad.data = `{'codProyectoContinuidad': '${codProyectoContinuidad}'}`;
 
@@ -674,8 +608,6 @@ cargaselect2ProyectoContinuidad = data => {
 
             getAjaxDataPromise(ajaxObtenerDatosProyectoContinuidad)
                 .then(data => {
-                    //console.log(data.d);
-
                     datosProyectoContinuidad = {
                         sexo: data.d.SexoProyecto,
                         codModeloIntervencion: data.d.CodModeloIntervencion,
@@ -764,7 +696,6 @@ cargaSelect2Licitaciones = data => {
 
             getAjaxDataPromise(ajaxObtenerProyectos)
                 .then(r=> {
-                    console.log(r.d);
                     $.each(r.d, function () {
 
                         var boton = null;
@@ -794,6 +725,7 @@ cargaSelect2Licitaciones = data => {
                             ''
                         ]).draw(false);
 
+
                         $.each(this.ProyectosAdosados, function () {
                             tableAdosados.row.add([
                                 this.CodAdosadoProyectoLicitacion,
@@ -807,30 +739,6 @@ cargaSelect2Licitaciones = data => {
 
                         
                     });
-                    //table.row.add([
-                    //    data.d[i].CodRegion
-                    //    //data.d[i].CodRegion,
-                    //    //data.d[i].Region,
-                    //    //data.d[i].CodComuna,
-                    //    //data.d[i].Comuna,
-                    //    //data.d[i].Focalizacion,
-                    //    //data.d[i].SexoPoblAtendida,
-                    //    //data.d[i].NumeroMesesConvenio,
-                    //    //data.d[i].CodModeloIntervencion,
-                    //    //data.d[i].ModeloIntervencion,
-                    //    //data.d[i].CodLineaAccion,
-                    //    //data.d[i].LineaAccion,
-                    //    //data.d[i].CodModalidadAtencion,
-                    //    //data.d[i].ModalidadAtencion,
-                    //    //data.d[i].CodTipoAtencion,
-                    //    //data.d[i].TipoAtencion,
-                    //    //data.d[i].FactorVidaFamiliar,
-                    //    //data.d[i].NroPlazas,
-                    //    //data.d[i].MontoPeriodoLicitar,
-                    //    //data.d[i].EsProyectoContinuidad,
-                    //    //data.d[i].esProyectoContinuidadTexto,
-                    //    //data.d[i].CodProyectoContinuidad
-                    //]).draw(false);
                 })
                 .catch(error => {
                     console.log("error al cargar tabla de proyectos", error);
