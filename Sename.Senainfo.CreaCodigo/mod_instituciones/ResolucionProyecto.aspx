@@ -466,7 +466,7 @@
                                     </button>
                                 </div>
 
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group" style="display:none;">
                                     <label>Importar Proyectos</label>
                                     <div class="input-group">
                                         <label class="input-group-btn">
@@ -501,7 +501,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="display:none;">
                                     <div class="input-group" style="padding-top: 0.5%;">
                                         <br />
                                         <button id="btnProcesarExcelProyectoLicitacion" class="btn btn-info input-sm">
