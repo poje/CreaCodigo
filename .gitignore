@@ -32,6 +32,10 @@ bld/
 [Ll]og/
 [Ll]ogs/
 Sename.Senainfo.CreaCodigo/bin/*
+Sename.Senainfo.CreaCodigo/bin/Sename.Senainfo.CreaCodigo.dll
+Sename.Senainfo.CreaCodigo/bin/Sename.Senainfo.CreaCodigo.pdb
+Sename.Senainfo.CreaCodigo/bin/stdole.dll
+
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
