@@ -689,64 +689,8 @@ cargaSelect2Licitaciones = data => {
                     console.log("error al cargar modelos de intervencion x depto " + error);
                 });
 
-
-            var codDatosAnexo = getSelectedValueInput2($("#select-datoanexo"));
-
-            ajaxObtenerProyectos.data = `{'codLicitacion':'${codDatosAnexo}'}`;
-
-            table.clear().draw();
-            tableAdosados.clear().draw();
-
-            getAjaxDataPromise(ajaxObtenerProyectos)
-                .then(r=> {
-                    $.each(r.d, function () {
-
-                        var boton = null;
-
-                        table.row.add([
-                            this.CodLicitacionProyecto,
-                            this.CodRegion,
-                            this.Region,
-                            this.CodComuna,
-                            this.Comuna,
-                            this.Focalizacion,
-                            this.SexoPoblAtendida,
-                            this.NumeroMesesConvenio,
-                            this.CodModeloIntervencion,
-                            this.ModeloIntervencion,
-                            this.CodLineaAccion,
-                            this.LineaAccion,
-                            this.CodModalidadAtencion,
-                            this.ModalidadAtencion,
-                            this.CodTipoAtencion,
-                            this.TipoAtencion,
-                            this.FactorVidaFamiliar,
-                            this.NroPlazas,
-                            this.MontoPeriodoLicitar,
-                            this.EsProyectoContinuidad,
-                            this.CodProyectoContinuidad,
-                            ''
-                        ]).draw(false);
-
-
-                        $.each(this.ProyectosAdosados, function () {
-                            tableAdosados.row.add([
-                                this.CodAdosadoProyectoLicitacion,
-                                this.CodLicitacionProyecto,
-                                this.CodModeloIntervencion,
-                                this.ModeloIntervencion,
-                                this.NumeroPlazas,
-                                this.Monto
-                            ]).draw(false);
-                        });
-
-                        
-                    });
-                })
-                .catch(error => {
-                    console.log("error al cargar tabla de proyectos", error);
-                });
-
+            obtenerProyectos();
+            
         });
 
         if ($(".licitacion") === null)
@@ -755,6 +699,66 @@ cargaSelect2Licitaciones = data => {
         resolve($(".licitacion"));
     });
 };
+
+obtenerProyectos = () => {
+    var codDatosAnexo = getSelectedValueInput2($("#select-datoanexo"));
+
+    ajaxObtenerProyectos.data = `{'codLicitacion':'${codDatosAnexo}'}`;
+
+    table.clear().draw();
+    tableAdosados.clear().draw();
+
+    getAjaxDataPromise(ajaxObtenerProyectos)
+        .then(r => {
+            $.each(r.d, function () {
+
+                var boton = null;
+
+                table.row.add([
+                    this.CodLicitacionProyecto,
+                    this.CodRegion,
+                    this.Region,
+                    this.CodComuna,
+                    this.Comuna,
+                    this.Focalizacion,
+                    this.SexoPoblAtendida,
+                    this.NumeroMesesConvenio,
+                    this.CodModeloIntervencion,
+                    this.ModeloIntervencion,
+                    this.CodLineaAccion,
+                    this.LineaAccion,
+                    this.CodModalidadAtencion,
+                    this.ModalidadAtencion,
+                    this.CodTipoAtencion,
+                    this.TipoAtencion,
+                    this.FactorVidaFamiliar,
+                    this.NroPlazas,
+                    this.MontoPeriodoLicitar,
+                    this.EsProyectoContinuidad,
+                    this.CodProyectoContinuidad,
+                    ''
+                ]).draw(false);
+
+
+                $.each(this.ProyectosAdosados, function () {
+                    tableAdosados.row.add([
+                        this.CodAdosadoProyectoLicitacion,
+                        this.CodLicitacionProyecto,
+                        this.CodModeloIntervencion,
+                        this.ModeloIntervencion,
+                        this.NumeroPlazas,
+                        this.Monto
+                    ]).draw(false);
+                });
+
+
+            });
+        })
+        .catch(error => {
+            console.log("error al cargar tabla de proyectos", error);
+        });
+
+}
 
 seleccionarValueSelect2 = (objS2, valueToS2) => {
     return new Promise((resolve, reject) => {

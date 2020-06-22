@@ -24,15 +24,15 @@
 
 
     table = $("#ProyectosLicitacion").DataTable({
-        pageLength: 5,
+        pageLength: 10,
         autoWidth: false,
         paging: true,
         lengthChange: true,
         pagingType: "numbers",
         ordering: false,
-        info: false,
+        info: true,
         cache: false,
-        searching: false,
+        searching: true,
         destroy: true,
         language: {
             search: "Buscar",
@@ -88,15 +88,15 @@
 
 
     tableAdosados = $("#ProyectosAdosados").DataTable({
-        pageLength: 50,
+        pageLength: 10,
         autoWidth: false,
-        paging: false,
-        lengthChange: false,
+        paging: true,
+        lengthChange: true,
         pagingType: "numbers",
         ordering: false,
-        info: false,
+        info: true,
         cache: false,
-        searching: false,
+        searching: true,
         destroy: true,
         language: {
             search: "Buscar",
@@ -239,12 +239,19 @@
             data: `{'licitacionProyecto': ${lp}}`,
             dataType: "json",
             contentType: 'application/json; charset="utf-8"',
-            success: data => { },
+            success: data => {
+                alertify.set('notifier', 'position', 'top-center');
+                alertify.success(`Proyecto agregado correctamente a Licitación`);
+            },
             complete: () => {},
             error: () => { }
         }).then(data => {
             //TODO: Agregar funcionalidad de que cuando se agreguen nuevos proyectos, actualice la tabla de Proyectos Licitacion
-            $("#CodLicitacionSeleccionado").val(data.d);
+            //$("#CodLicitacionSeleccionado").val(data.d);
+
+            obtenerProyectos();
+            limpiar();
+            
         });
         
     });
@@ -571,6 +578,7 @@ limpiar = (limpiarTabla) => {
         table.clear().draw();
 
 
+
     setValueSelect2($(".depto"), 0);
     setValueSelect2($(".region"), 0);
     setValueSelect2($(".comuna"), 0);
@@ -578,6 +586,8 @@ limpiar = (limpiarTabla) => {
     setValueSelect2($(".modalidad-atencion"), 0);
     setValueSelect2($(".tipo-atencion"), 0);
     setValueSelect2($(".sexo-poblacion"), 0);
+    $(".nro-meses-convenio").val("");
+    $(".focalizacion").val("");
     $(".nro-plazas").val("");
     $(".monto-periodo-licitar").val("");
     setStateBootstrapSwitch($("#chkFactorVidaFamiliar"), false);
