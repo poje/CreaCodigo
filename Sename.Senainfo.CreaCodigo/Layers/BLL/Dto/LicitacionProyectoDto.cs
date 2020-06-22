@@ -7,7 +7,7 @@ namespace Sename.Senainfo.CreaCodigo.Layers.BLL.Dto
     public class LicitacionProyectoDto
     {
         public int CodLicitacionProyecto { get; set; }
-        public int CodLicitacion { get; set; }
+        public int CodDatosAnexo { get; set; }
         public int CodRegion { get; set; }
         public string Region { get; set; }
         public int CodComuna { get; set; }

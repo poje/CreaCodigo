@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    console.log("initResProyDatosProyectoLicitacion...Tab2...")
     cargadropdownLicitacion(null);
 
     inicializaSwitchs();
@@ -25,15 +24,15 @@
 
 
     table = $("#ProyectosLicitacion").DataTable({
-        pageLength: 5,
+        pageLength: 10,
         autoWidth: false,
         paging: true,
         lengthChange: true,
         pagingType: "numbers",
         ordering: false,
-        info: false,
+        info: true,
         cache: false,
-        searching: false,
+        searching: true,
         destroy: true,
         language: {
             search: "Buscar",
@@ -60,13 +59,6 @@
             $("td", row).eq(10).addClass("hidden");
             $("td", row).eq(12).addClass("hidden");
             $("td", row).eq(14).addClass("hidden");
-            //$("td", row).eq(16).addClass("hidden");
-            //$("td", row).eq(20).addClass("hidden");
-
-
-
-
-            //$("td", row).eq(21).addClass("hidden");
 
             if ($("td", row).eq(15).text() === "0")
                 $("td", row).eq(16).text("No");
@@ -96,15 +88,15 @@
 
 
     tableAdosados = $("#ProyectosAdosados").DataTable({
-        pageLength: 50,
+        pageLength: 10,
         autoWidth: false,
-        paging: false,
-        lengthChange: false,
+        paging: true,
+        lengthChange: true,
         pagingType: "numbers",
         ordering: false,
-        info: false,
+        info: true,
         cache: false,
-        searching: false,
+        searching: true,
         destroy: true,
         language: {
             search: "Buscar",
@@ -126,10 +118,7 @@
         ],
         columnDefs: [
             {
-                "targets": [-1],
-                render: function (data, type, row) {
-                    return '';
-                }
+                
             }
         ],
         createdRow: (row, data, index) => {
@@ -168,7 +157,6 @@
     $("#ProyectosLicitacion tbody").on("click",
         ".agregar-adosado",
         function (evt) {
-            //Deshabilito Opciones
             evt.preventDefault();
 
             var data = table.row($(this).parents("tr")).data();
@@ -177,29 +165,23 @@
 
             cargaDropdownModeloAdosado(data[8]);
 
-            //$("#lblTituloDatosProyectoAdosado").clear();
-            
+            $("#CodLicitacionSeleccionado").val(data[0]);
+
             $("#lblTituloDatosProyectoAdosado").text(`Datos de Proyecto Adosado (Agregando Proyecto Adosado a Cod. Licitacion Proyecto ${data[0]})`);
 
-
-
-            console.log(data);
         });
 
     $("#btnGuardarProyectoLicitacion").on("click", function (e) {
         e.preventDefault();
 
-        var codLicitacion = getSelectedValueInput2($(".licitacion"));
+        var codLicitacion = getSelectedValueInput2($("#select-datoanexo"));
 
         table.rows().every(function (rowIdx, tableLoop, rowLoop) {
-            //Insert 
             var d = this.data();
-            console.log(d);
 
             var lp = LicitacionProyecto(codLicitacion, d[0], d[2], d[5], d[6], d[7], d[9], d[11], d[13], d[15], d[17], d[19], d[20], d[22], d[24], 'V', d[4], d[24], d[26]);
 
             lp = JSON.stringify(lp);
-            console.log(lp);
 
             $.ajax({
                 type: "POST",
@@ -208,7 +190,7 @@
                 dataType: "json",
                 contentType: 'application/json; charset="utf-8"',
                 success: data => { },
-                complete: console.log("completado correctamente"),
+                complete: () => {},
                 error: () => { }
             }).then(data => { });
         });
@@ -222,12 +204,6 @@
 
     $("#btnProcesarExcelProyectoLicitacion").on("click", function (e) {
         e.preventDefault();
-        debugger;
-        //var formularioProyectoLicitacion = new FormData();
-        //var archivoProyectoLicitacion = $("#fileAdjuntoExcel")[0].files[0];
-
-        //formularioProyectoLicitacion.append('ExcelProyectoLicitacion', archivoProyectoLicitacion);
-        //formularioResoluciones.append('IdUsuario', 69044);
 
         if ($("#lblAdjuntoExcel").val().includes("xls"))
             AdjuntarArchivo("CMP");
@@ -252,6 +228,7 @@
 
     $("#AgregaProyectoLicitacion").on("click", (e) => {
         e.preventDefault();
+
         var lpt = LicitacionProyectosTabla();
 
         var lp = JSON.stringify(lpt);
@@ -262,15 +239,18 @@
             data: `{'licitacionProyecto': ${lp}}`,
             dataType: "json",
             contentType: 'application/json; charset="utf-8"',
-            success: data => { },
-            complete: console.log("completado correctamente"),
+            success: data => {
+                alertify.set('notifier', 'position', 'top-center');
+                alertify.success(`Proyecto agregado correctamente a Licitación`);
+            },
+            complete: () => {},
             error: () => { }
         }).then(data => {
+            //TODO: Agregar funcionalidad de que cuando se agreguen nuevos proyectos, actualice la tabla de Proyectos Licitacion
+            //$("#CodLicitacionSeleccionado").val(data.d);
 
-            console.log(data);
-
-            $("#CodLicitacionSeleccionado").val(data.d);
-            
+            obtenerProyectos();
+            limpiar();
             
         });
         
@@ -280,10 +260,11 @@
 
         e.preventDefault();
 
+
         var proyectoAdosadoProyectoLicitacion = {
             codLicitacionProyecto: $("#CodLicitacionSeleccionado").val(),
             codModeloIntervencion : getSelectedValueInput2($(".modelo-intervencion-adosado")),
-            numeroPlazas: $(".nro-plazas").val(),
+            numeroPlazas: $(".nro-plazas-adosado").val(),
             monto: $(".monto-periodo-adosado").val(),
             indVigencia: 'V'
         }
@@ -300,7 +281,6 @@
                 alert("se ha agregado correctamente");
             },
             error: function (error) {
-                alert(`ha habido un error ${error}`);
                 console.log(error);
             }
         }).then(function (data) {
@@ -317,14 +297,14 @@
 function LicitacionProyectosTabla() {
 
     return {
-        codLicitacion: getSelectedValueInput2($(".licitacion")),
+        codDatosAnexo: getSelectedValueInput2($("#select-datoanexo")),
         codRegion: getSelectedValueInput2($(".region")),
         region: getTextSelectedValueInput2($(".region")),
         codComuna: getSelectedValueInput2($(".comuna")),
         comuna: getTextSelectedValueInput2($(".comuna")),
         focalizacion: $(".focalizacion").val(),
-        sexoPobl: getSelectedValueInput2($(".sexo-poblacion")),
-        nroMesesConvenio: $(".nro-meses-convenio").val(),
+        sexoPoblAtendida: getSelectedValueInput2($(".sexo-poblacion")),
+        numeroMesesConvenio: $(".nro-meses-convenio").val(),
         codModeloIntervencion: getSelectedValueInput2($(".modelo-intervencion")),
         modeloIntervencion: getTextSelectedValueInput2($(".modelo-intervencion")),
         codLineaAccion: getSelectedValueInput2($(".linea-accion")),
@@ -460,7 +440,6 @@ inicializaSwitchs = () => {
         if (state) {
             $(".proyecto-continuidad").attr("disabled", false);
 
-            //var codDepto = $(".licitacion").find(':selected').data('data').CodDeptoSename;
             var codDepto = $("#select-datoanexo").find(':selected').data('data').CodDeptoSename;
             var codRegion = getSelectedValueInput2($(".region"));
 
@@ -503,11 +482,6 @@ inicializaMasks = () => {
         mask: "[99]"
     });
 
-    //$(".nro-plazas").inputmask({
-    //    regex: "\\d+",
-    //    mask: "[999]"
-    //});
-
     $(".monto-periodo-licitar").inputmask({
         regex: "\\d+",
         mask: "[999999999]"
@@ -544,8 +518,6 @@ cargaDropdownTipoAtencion = () => {
 
 cargadropdownModalidadAtencion = (codModeloIntervencion) => {
 
-    //var codModeloIntervencion = 86;
-
     ajaxModalidadAtencion.data = `{'codModeloIntervencion':'${codModeloIntervencion}'}`;
 
     getAjaxDataPromise(ajaxModalidadAtencion)
@@ -558,10 +530,6 @@ cargadropdownModalidadAtencion = (codModeloIntervencion) => {
 };
 
 cargaDropdownModeloIntervencion = (codDepto) => {
-
-    //var tipoProyecto = 8;
-
-    //ajaxModeloIntervencion.data = `{'tipoProyecto':'${tipoProyecto}'}`;
 
     ajaxModeloIntervencionxDepto.data = `{'codDepto':'${codDepto}'}`;
 
@@ -599,13 +567,7 @@ cargaDropdownLineaAccion = () => {
 };
 
 bloqueoInicial = () => {
-    //$(".depto").attr("disabled", true);
-    //$(".modelo-intervencion-adosado").attr("disabled", true);
-    //$(".nro-plazas-adosado").attr("disabled", true);
-    //$("#btnGuardarDatosLicitacion").attr("disabled", true);
     $("#btnGuardarProyectoLicitacion").attr("disabled", true);
-    //$(".modelo-intervencion").attr("disabled", true);
-    //setDisabledBootstrapSwitch($("#chkProyectoAdosado"), false);
     setDisabledBootstrapSwitch($("#chkEsProyectoContinuidad"), false);
     $(".proyecto-continuidad").attr("disabled", true);
 };
@@ -616,6 +578,7 @@ limpiar = (limpiarTabla) => {
         table.clear().draw();
 
 
+
     setValueSelect2($(".depto"), 0);
     setValueSelect2($(".region"), 0);
     setValueSelect2($(".comuna"), 0);
@@ -623,10 +586,11 @@ limpiar = (limpiarTabla) => {
     setValueSelect2($(".modalidad-atencion"), 0);
     setValueSelect2($(".tipo-atencion"), 0);
     setValueSelect2($(".sexo-poblacion"), 0);
+    $(".nro-meses-convenio").val("");
+    $(".focalizacion").val("");
     $(".nro-plazas").val("");
     $(".monto-periodo-licitar").val("");
     setStateBootstrapSwitch($("#chkFactorVidaFamiliar"), false);
-    //setStateBootstrapSwitch($("#chkProyectoAdosado"), false);
     $(".modelo-intervencion").attr("disabled", true);
 
 

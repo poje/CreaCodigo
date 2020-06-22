@@ -23,7 +23,7 @@ namespace Sename.Senainfo.CreaCodigo.Layers.BLL.Mapper
                 var lp = new LicitacionProyectoDto
                 {
                     CodLicitacionProyecto = Convert.ToInt32(row["CodLicitacionProyecto"].ToString()),
-                    CodLicitacion = Convert.ToInt32(row["CodLIcitacion"].ToString()),
+                    CodDatosAnexo = Convert.ToInt32(row["CodDatosAnexo"].ToString()),
                     CodRegion = Convert.ToInt32(row["CodRegion"].ToString()),
                     Region = row["Region"].ToString(),
                     CodComuna = Convert.ToInt32(row["CodComuna"].ToString()),

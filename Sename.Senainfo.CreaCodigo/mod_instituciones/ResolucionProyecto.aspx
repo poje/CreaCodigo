@@ -466,7 +466,7 @@
                                     </button>
                                 </div>
 
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group" style="display:none;">
                                     <label>Importar Proyectos</label>
                                     <div class="input-group">
                                         <label class="input-group-btn">
@@ -501,7 +501,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="display:none;">
                                     <div class="input-group" style="padding-top: 0.5%;">
                                         <br />
                                         <button id="btnProcesarExcelProyectoLicitacion" class="btn btn-info input-sm">
@@ -512,8 +512,10 @@
                                 </div>
 
                                 <input type="hidden" id="CodLicitacionSeleccionado" value="0" />
-
+                                
                                 <div class="col-md-12" style="overflow-x: scroll; padding-top: 20px;" width="1000">
+                                    <hr />
+                                    <label class="subtitulo-form">Proyectos Licitacion</label>
                                     <table class="table table-bordered table-hover" id="ProyectosLicitacion">
                                         <thead class="titulo-tabla">
                                             <tr>
@@ -592,7 +594,11 @@
 
                                 </div>
 
+                                
+
                                 <div class="col-md-12" style="overflow-x: scroll; padding-top: 20px;" width="1000">
+                                    <hr />
+                                    <label class="subtitulo-form">Proyectos Adosados Relacionados</label>
                                     <table class="table table-bordered table-hover" id="ProyectosAdosados">
                                         <thead class="titulo-tabla">
                                             <tr>
