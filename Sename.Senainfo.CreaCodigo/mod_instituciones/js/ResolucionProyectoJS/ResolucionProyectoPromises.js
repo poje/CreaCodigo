@@ -672,7 +672,7 @@ cargaSelect2Licitaciones = data => {
             templateResult: setLicitacion
         });
 
-        agregarSelectOption($(".licitacion"));
+        
 
         $("#select-datoanexo").on("change", function (e) {
             var codDepto = $("#select-datoanexo").find(':selected').data('data').CodDeptoSename;
@@ -696,6 +696,8 @@ cargaSelect2Licitaciones = data => {
         if ($(".licitacion") === null)
             reject(new Error("error al cargar dropdown datos Anexo " + error));
 
+
+        agregarSelectOption($(".licitacion"));
         resolve($(".licitacion"));
     });
 };
